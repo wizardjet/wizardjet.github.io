@@ -1,7 +1,16 @@
 ﻿<?php
 
 // Replace this with your own email address
-$siteOwnersEmail = 'cx.jet97@gmail.com';
+$siteOwnersEmail = "cx.jet97@gmail.com";
+$mail = new PHPMailer();
+$mail->IsSMTP();
+$mail->CharSet = 'UTF-8';
+$mail->Host       = "smtp.gmail.com"; // SMTP server example
+$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
+$mail->SMTPAuth   = true;                  // enable SMTP authentication
+$mail->Port       = 587;                    // set the SMTP port for the GMAIL server
+$mail->Username   = "jet.web.helper@gmail.com"; // SMTP account username example
+$mail->Password   = "zRc4PU@AxfyB3hf#sK]B>q!";        // SMTP account password example
 
 
 if($_POST) {
@@ -46,11 +55,11 @@ if($_POST) {
 
    if (!$error) {
 
-      ini_set("sendmail_from", $siteOwnersEmail); // for windows server
-      $mail = mail($siteOwnersEmail, $subject, $message, $headers);
-
+	// ini_set("sendmail_from", $siteOwnersEmail); // for windows server
+	$mail = mail($siteOwnersEmail, $subject, $message, $headers);
+	  };
 		if ($mail) { echo "OK"; }
-      else { echo "Something went wrong. Please try again."; }
+      else { echo "Something went wrong. Please try again.";}
 		
 	} # end if - no validation error
 
