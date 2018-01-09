@@ -12,6 +12,7 @@ require 'PHPMailer/src/SMTP.php';
 $siteOwnersEmail = "jet.web.helper@gmail.com";
 $mail = new PHPMailer();
 try {
+	//Details
 	$mail->IsSMTP();		// Set mailer to use SMTP
 	$mail->CharSet = 'UTF-8';
 	$mail->Host       = "smtp.gmail.com"; // SMTP server example                             
@@ -34,9 +35,13 @@ try {
 		$mail->Body = $contact_message;
 	}
 
-    $mail->send();
+	//Send
+	$mail->send();
+	
+	//Ok message for Ajax
     echo 'OK';
 } catch (Exception $e) {
+	//Exception message if email fails
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 }
