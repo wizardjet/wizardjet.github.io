@@ -226,8 +226,6 @@
 
 		//JS Email
 		// parameters: service_id, template_id, template_parameters
-		var name = $('contactName').val() + " " + $('contactEmail').val();
-		var notes = $('contactMessage').val();
 		emailjs.send("gmail_account","websiteemail",{
 			"name": $('#contactName').val(), 
 			"email": $('#contactEmail').val(),
